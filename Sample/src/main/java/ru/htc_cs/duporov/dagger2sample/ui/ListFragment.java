@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,16 +30,11 @@ public class ListFragment extends Fragment implements Listener {
     @Inject
     ListAdapter listAdapter;
 
+    @Inject
+    List<Model> modelList;
+
     @Bind(R.id.recycler)
     RecyclerView recyclerView;
-
-    private List<Model> modelList = Arrays.asList(
-            new Model("Russia", "Izhevsk", android.R.color.holo_red_dark),
-            new Model("Russia", "Moscow", android.R.color.holo_purple),
-            new Model("USA", "Washington", android.R.color.holo_orange_dark),
-            new Model("Ukraine", "Kiev", android.R.color.holo_blue_dark),
-            new Model("Serbia", "Belgrade", android.R.color.holo_green_dark)
-    );
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,10 +55,6 @@ public class ListFragment extends Fragment implements Listener {
         super.onViewCreated(view, savedInstanceState);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(listAdapter);
-    }
-
-    public List<Model> initList() {
-        return modelList;
     }
 
     @Override

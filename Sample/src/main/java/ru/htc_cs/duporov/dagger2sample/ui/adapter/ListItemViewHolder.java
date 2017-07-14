@@ -28,6 +28,7 @@ public class ListItemViewHolder extends RecyclerView.ViewHolder implements View.
 
     public ListItemViewHolder(View itemView, Listener listener) {
         super(itemView);
+        itemView.setOnClickListener(this);
         ButterKnife.bind(this, itemView);
         context = itemView.getContext();
         this.listener = listener;
